@@ -13,6 +13,7 @@ body {
   font-size:20px;
   color:black;
   margin:auto;
+  padding:auto;
   border: solid 2px black;
   text-align: center;
 }
