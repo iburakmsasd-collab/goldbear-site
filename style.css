@@ -25,7 +25,7 @@ body {
 }
 
 #title {
-  margin:auto;
+  padding:auto;
   text-align :center;
   border: solid 4px black;
   font-size:50px;
