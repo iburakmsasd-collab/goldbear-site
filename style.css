@@ -6,14 +6,17 @@ body {
 
 .slicky {
   color:blue;
+  border:2px black;
 }
 
 #pita {
   font-size:20px;
   color:black;
+  margin:40px;
 }
 
 #what {
   font-size:100px;
+  padding:20px;
 }
 
