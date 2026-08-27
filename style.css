@@ -13,12 +13,18 @@ body {
   font-size:20px;
   color:black;
   margin:auto;
-  border: solid 20px black;
+  border: solid 2px black;
   text-align: center;
 }
 
 #what {
   font-size:100px;
   padding:20px;
+}
+
+#title {
+  margin:auto;
+  text-align :center;
+  border: style 4px black;
 }
 
