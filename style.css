@@ -16,6 +16,7 @@ body {
   padding:auto;
   border: solid 2px black;
   text-align: center;
+  width:300px;
 }
 
 #what {
