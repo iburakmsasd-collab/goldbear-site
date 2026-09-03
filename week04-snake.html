@@ -5,9 +5,9 @@
   <title>Snake</title>
 </head>
 <body>
-  <h1>snek gmae</h1>
+  <h1>snek game</h1>
   <p><a href="index.html">Back to home</a></p>
-  <p>use arrot keys to move</p>
+    <p>use arrow keys to move</p>
   <p>game work in progress</p>
   <canvas id="gameCanvas" width="400" height="400"></canvas>
 </body>
@@ -31,10 +31,10 @@ drawBoard();
 function step() {
   snake.x = snake.x + dx;
   snake.y = snake.y + dy;
-  if (snake.x > 380) { snake.x = 0; }
-  if (snake.x < 0) { snake.x = 380; }
-  if (snake.y > 380) { snake.y = 0; }
-  if (snake.y < 0) { snake.y = 380; }
+  if (snake.x > 400) { snake.x = -20; }
+  if (snake.x < -20) { snake.x = 400; }
+  if (snake.y > 400) { snake.y = -20; }
+  if (snake.y < -20) { snake.y = 400; }
 
   drawBoard();
 }
