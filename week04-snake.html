@@ -12,20 +12,38 @@
   <canvas id="gameCanvas" width="400" height="400"></canvas>
 </body>
 <script>
-     var canvas = document.getElementById("gameCanvas");
-    var ctx = canvas.getContext("2d");
-    var CELL = 20;
-    var snake = { x: 10, y: 10 };
-  var dx = 5; // how far snake.x changes each step
+var canvas = document.getElementById("gameCanvas");
+var ctx = canvas.getContext("2d");
+var CELL = 20;
+var snake = { x: 10, y: 10 };
+var dx = 5; // how far snake.x changes each step
 var dy = 0;  // how far snake.y changes each step
-  function drawBoard() {
+var body = [];        // every square the snake is made of
+var snakeLength = 2;  // how long it is supposed to be
+var apple = { x: 200, y: 200 };
+  
+  
+function drawBoard() {
   ctx.fillStyle = "#1b1b1b";
   ctx.fillRect(0, 0, 400, 400);
  
   ctx.fillStyle = "#3ddc84";
-  ctx.fillRect(snake.x, snake.y, 20, 20);
+  for (var i = 0; i < body.length; i++) {
+    ctx.fillRect(body[i].x, body[i].y, 20, 20);
+  }
+  ctx.fillStyle = "red";
+  ctx.fillRect(apple.x, apple.y, 20, 20);
+
+  if (snake.x === apple.x && snake.y === apple.y) {
+    snakeLength = snakeLength + 1;
+    apple.x = Math.floor(Math.random() * 20) * 20;
+    apple.y = Math.floor(Math.random() * 20) * 20;
+  }
+
+
 }
- 
+
+
 drawBoard();
 
 function step() {
@@ -36,11 +54,25 @@ function step() {
   if (snake.y > 400) { snake.y = -20; }
   if (snake.y < -20) { snake.y = 400; }
 
+  for (var i = 0; i < body.length; i++) {
+  if (body[i].x === snake.x && body[i].y === snake.y) {
+      clearInterval(timer);
+      alert("Game over");
+      return;
+    }
+  }
+
+  
+    body.push({ x: snake.x, y: snake.y });
+ 
+  while (body.length > snakeLength) {
+    body.shift();
+  }
+
+
   drawBoard();
 }
   
-setInterval(step, 35);
-
 document.addEventListener("keydown", function(event) {
   if (event.key === "ArrowRight") {
     dx = 5;
@@ -60,6 +92,8 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+
+var timer = setInterval(step, 35);   // was: setInterval(step, 100);
 
 
 </script>
